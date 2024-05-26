@@ -4,3 +4,4 @@ declare interface IChildren {
 declare interface IClassName {
   className?: string;
 }
+declare interface IChildrenClassName extends IChildren, IClassName {}
