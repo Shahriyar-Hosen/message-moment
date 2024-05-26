@@ -17,7 +17,13 @@ const config = {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      fontFamily: {
+        "jet-brains-mono": "JetBrains Mono",
+        "dm-sans": "DM Sans",
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
