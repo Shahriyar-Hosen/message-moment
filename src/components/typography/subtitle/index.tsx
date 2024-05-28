@@ -2,15 +2,14 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { HTMLAttributes, forwardRef } from "react";
 
-const myClass = "tracking-normal";
 const variantsFn = cva("tracking-normal", {
   variants: {
     variant: {
-      H3: "font-dm-sans font-normal text-[17px] leading-[24px]",
-      H4: "font-jetbrains-mono font-normal text-[15px] leading-[20px]",
-      H5: "font-dm-sans font-medium text-[17px] leading-[24px]",
-      H6: "font-dm-sans font-medium text-[17px] leading-[24px]",
-      H7: "font-dm-sans font-medium text-[17px] leading-[24px]",
+      H3: "font-dm-sans font-bold text-[40px]",
+      H4: "font-dm-sans font-bold text-[26px]",
+      H5: "font-jetbrains-mono font-medium text-[20px]",
+      H6: "font-jetbrains-mono font-medium text-[18px]",
+      H7: "font-jetbrains-mono font-medium text-[17px]",
     },
   },
   defaultVariants: {
