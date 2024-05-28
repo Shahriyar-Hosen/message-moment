@@ -20,7 +20,7 @@ const config = {
 
     extend: {
       fontFamily: {
-        "jet-brains-mono": "JetBrains Mono",
+        "jetbrains-mono": "JetBrains Mono",
         "dm-sans": "DM Sans",
       },
 

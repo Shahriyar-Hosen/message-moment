@@ -1,7 +1,20 @@
 {
-  "TransLations": {
-    "prefix": ["t", "tl", "tla", "tlng", "tlang"],
-    "body": ["{t(\"$1\")}$2"],
-    "description": "{t('title')}"
+  "Variants Fanction": {
+    "prefix": ["variants", "variantsFanction", "variantsFn", "vfn"],
+    "body": [
+      "const myClass = \"$1\";",
+      "const variantsFn = cva(\"$2 common style\", {\r",
+      "  variants: {\r",
+      "    variant: {\r",
+      "      $N1: \"n1 style\",\r",
+      "      $N2: \"n2 style\",\r",
+      "    },\r",
+      "  },\r",
+      "  defaultVariants: {\r",
+      "    variant: \"N1\",\r",
+      "  },\r",
+      "});"
+    ],
+    "description": "Variants Fanction for custom variant components"
   }
 }
