@@ -1,5 +1,6 @@
 import { Note } from "@/components/typography/note";
 import { P } from "@/components/typography/paragraph";
+import { SubTitle } from "@/components/typography/subtitle";
 import { FC } from "react";
 
 const Home = () => {
@@ -22,6 +23,15 @@ const Home = () => {
         <P>P1 P1 P1 p1 p1 </P>
         <P variant="P2">P2 P2 P2 p2 p2 </P>
         <P variant="P3">P3 P3 P3 p3 p3 </P>
+      </Typography>
+      <Typography title="SubTitle">
+        <SubTitle>SubTitle1 SubTitle1 SubTitle1 SubTitle1 SubTitle1 </SubTitle>
+        <SubTitle variant="H4">
+          SubTitle2 SubTitle2 SubTitle2 SubTitle2 SubTitle2
+        </SubTitle>
+        <SubTitle variant="H5">
+          SubTitle3 SubTitle3 SubTitle3 SubTitle3 SubTitle3
+        </SubTitle>
       </Typography>
     </div>
   );
