@@ -1,7 +1,4 @@
-import { Note } from "@/components/typography/note";
-import { P } from "@/components/typography/paragraph";
-import { SubTitle } from "@/components/typography/subtitle";
-import { Title } from "@/components/typography/title";
+import { Note, P, SubTitle, Title } from "@/components/typography";
 import { FC } from "react";
 
 const Home = () => {
