@@ -6,7 +6,7 @@ const variantsFn = cva("font-dm-sans", {
   variants: {
     variant: {
       H1: "font-medium text-[80px] leading-[80px] tracking-[-2px]",
-      H2: "font-bold text-[80px] leading-[80px] tracking-normal",
+      H2: "font-bold text-[60px] leading-[70px] tracking-normal",
     },
   },
   defaultVariants: {
