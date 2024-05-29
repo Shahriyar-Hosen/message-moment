@@ -3,7 +3,7 @@ import { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <Container>
+    <Container className="bg-light-gray">
       <nav>Navbar</nav>
       <main>Main</main>
       <footer>Footer</footer>
