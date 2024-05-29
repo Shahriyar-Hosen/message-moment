@@ -13,12 +13,14 @@ export const Footer = () => {
       </Container>
       <div className="border-t">
         <Container className="py-8 flex justify-between items-center">
-          <Note className="text-dark-gray">
+          <Note className="text-dark-gray w-full">
             Copyright &copy; {new Date().getFullYear()} MessageMoment. All
             rights reserved.
           </Note>
-          <SocialIcon />
-          <Note className="flex justify-center items-center gap-2.5">
+          <div className="w-full flex justify-center items-center">
+            <SocialIcon />
+          </div>
+          <Note className="flex justify-end items-center gap-2.5 w-full">
             Designed By
             <Image
               src="/icon/designed-by.svg"
