@@ -1,6 +1,7 @@
 import { Container } from "@/components/common";
 import { Note, P, SubTitle, Title } from "@/components/typography";
 import Image from "next/image";
+import { DiscoverSlider } from "./slider";
 
 const data = [
   {
@@ -53,30 +54,17 @@ export const Discover = () => {
           Discover more from MessageMoment
         </Title>
         <div className="flex justify-center items-center gap-[54px] pt-10">
-          <Image
+          {/* <Image
             src="/icon/right-arrow.svg"
             width={35}
             height={20}
             className="rotate-180"
             alt=""
-          />
-          <div className="flex justify-center items-center gap-5">
-            {data.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-center items-center gap-[27px] flex-col w-[260px] h-[242px] bg-white rounded-[20px] text-dark"
-              >
-                <Image
-                  src={item.icon}
-                  width={80}
-                  height={80}
-                  alt={item.label}
-                />
-                <SubTitle variant="H4">{item.label}</SubTitle>
-              </div>
-            ))}
+          /> */}
+          <div className="w-full h-fit ">
+            <DiscoverSlider />
           </div>
-          <Image src="/icon/right-arrow.svg" width={35} height={20} alt="" />
+          {/* <Image src="/icon/right-arrow.svg" width={35} height={20} alt="" /> */}
         </div>
         <div className="pt-[60px] flex flex-col justify-center items-center gap-10">
           <SubTitle variant="H4" className="text-center">
