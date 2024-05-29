@@ -3,27 +3,7 @@ import { Note, P, SubTitle, Title } from "@/components/typography";
 import Image from "next/image";
 import { DiscoverSlider } from "./slider";
 
-const data = [
-  {
-    icon: "/images/auth-success.svg",
-    label: "Secure",
-  },
-  {
-    icon: "/images/auth-lock.svg",
-    label: "Private",
-  },
-  {
-    icon: "/images/world.svg",
-    label: "Browser Based",
-  },
-  {
-    icon: "/images/project.png",
-    label: "Project Mode",
-    option: true,
-  },
-];
-
-const date2 = [
+const deviceDate = [
   {
     label: "Phone",
     image: "/images/cellphone.svg",
@@ -59,7 +39,7 @@ export const Discover = () => {
             Use MessageMoment on any device via Browser1
           </SubTitle>
           <div className="flex justify-center items-center gap-[50px]">
-            {date2.map((item, i) => (
+            {deviceDate.map((item, i) => (
               <div
                 key={i}
                 className="flex justify-center items-center gap-5 flex-col"
@@ -77,7 +57,7 @@ export const Discover = () => {
             ))}
           </div>
 
-          <div className="mt-5 w-full max-w-[1096px] mx-auto border-t border-white">
+          <div className="mt-5 w-full max-w-[1096px] mx-auto border-t border-white/20">
             <Note className="text-center pt-5 pb-10">
               1Disclaimer: Compatibility may vary across different devices and
               operating systems.

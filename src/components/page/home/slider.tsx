@@ -2,6 +2,7 @@
 
 import { SubTitle } from "@/components/typography";
 import Image from "next/image";
+import { useState } from "react";
 
 const defaultData = [
   {
@@ -21,8 +22,6 @@ const defaultData = [
     label: "Project Mode",
   },
 ];
-
-import { useState } from "react";
 
 export const DiscoverSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
