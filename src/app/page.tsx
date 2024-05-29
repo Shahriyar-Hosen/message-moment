@@ -1,11 +1,12 @@
-import { Container } from "@/components/common";
+import { Discover } from "@/components/page/home";
 import { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <Container className="bg-light-gray">
-      <main className="min-h-screen">Main</main>
-    </Container>
+    <main className="min-h-screen">
+      <div className="h-screen"></div>
+      <Discover />
+    </main>
   );
 };
 
