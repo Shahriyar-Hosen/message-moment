@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { Footer, Navbar } from "@/components/shared";
 import type { Metadata } from "next";
 import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import { FC } from "react";
@@ -14,8 +14,10 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<IChildren> = ({ children }) => (
   <html lang="en">
-    <body className={cn(jetBrainsMono.className, dmSans.className)}>
+    <body className={`${jetBrainsMono.className} ${dmSans.className}`}>
+      <Navbar />
       {children}
+      <Footer />
     </body>
   </html>
 );
