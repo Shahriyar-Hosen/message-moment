@@ -78,11 +78,3 @@
 .bg-gradient {
   @apply bg-gradient-to-b from-[#494AF8] to-[#4949f800];
 }
-
-.slick-arrow {
-  width: 20px !important;
-  height: 36px !important;
-}
-.slick-next {
-  right: -77px !important;
-}

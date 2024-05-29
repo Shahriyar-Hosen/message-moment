@@ -50,22 +50,10 @@ export const Discover = () => {
   return (
     <section>
       <Container customClass="bg-dark" className="text-white pt-[70px]">
-        <Title variant="H2" className="text-center max-w-[934px] mx-auto">
+        <Title variant="H2" className="text-center max-w-[934px] mx-auto pb-10">
           Discover more from MessageMoment
         </Title>
-        <div className="flex justify-center items-center gap-[54px] pt-10">
-          {/* <Image
-            src="/icon/right-arrow.svg"
-            width={35}
-            height={20}
-            className="rotate-180"
-            alt=""
-          /> */}
-          <div className="w-full h-fit ">
-            <DiscoverSlider />
-          </div>
-          {/* <Image src="/icon/right-arrow.svg" width={35} height={20} alt="" /> */}
-        </div>
+        <DiscoverSlider />
         <div className="pt-[60px] flex flex-col justify-center items-center gap-10">
           <SubTitle variant="H4" className="text-center">
             Use MessageMoment on any device via Browser1
