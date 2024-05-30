@@ -13,13 +13,19 @@ import {
 } from "@/components/ui/select";
 import { Copy, Lock, Qr, Refresh, World } from "@/lib/assets";
 import { cn } from "@/lib/utils";
-import { memo, useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, memo, useEffect, useState } from "react";
 
-const SelectBox = memo(() => {
+type UrlType = "standard" | "secure";
+type ISelectBox = { setUrlType: Dispatch<SetStateAction<UrlType>> };
+const SelectBox: FC<ISelectBox> = memo(({ setUrlType }) => {
   const [dropOpen, setDropOpen] = useState(false);
 
   return (
-    <Select defaultValue="standard" onOpenChange={() => setDropOpen(!dropOpen)}>
+    <Select
+      defaultValue="standard"
+      onOpenChange={() => setDropOpen(!dropOpen)}
+      onValueChange={(e) => setUrlType(e as UrlType)}
+    >
       <SelectTrigger
         className={cn(
           "w-[140px] min-w-[140px] h-[50px] rounded-none rounded-s-[5px] outline-none",
@@ -51,9 +57,31 @@ const SelectBox = memo(() => {
 });
 SelectBox.displayName = "SelectBox";
 
+interface IIconCard {
+  disabled?: boolean;
+  onclick?: () => void;
+}
+const IconCard: FC<IChildrenClassName & IIconCard> = memo(
+  ({ children, className, disabled, onclick }) => (
+    <div
+      onClick={onclick}
+      className={cn(
+        "bg-white rounded-[5px] size-[50px] flex justify-center items-center cursor-pointer",
+        disabled && "cursor-not-allowed opacity-30",
+        className
+      )}
+    >
+      {children}
+    </div>
+  )
+);
+IconCard.displayName = "IconCard";
+
 export const ChatBox = memo(() => {
+  const [urlType, setUrlType] = useState<UrlType>("standard");
   const [disabled, setDisabled] = useState(true);
   const [url, setUrl] = useState<string>("");
+  const [secureCode, setSecureCode] = useState<string>("");
 
   useEffect(() => setDisabled(url.length > 0 ? false : true), [url]);
 
@@ -66,37 +94,42 @@ export const ChatBox = memo(() => {
         </P>
         <div className="w-full h-full bg-black/[0.08] px-[30px] pt-[35px] pb-[25px] text-black">
           <div className="w-full flex">
-            <SelectBox />
-            <Input
-              type="text"
-              onChange={(e) => setUrl(e.target.value)}
-              className="h-[50px] rounded-none rounded-e-[5px]"
-            />
-            <div className="flex justify-center items-center pl-[6px] gap-[5px]">
-              <div
+            <SelectBox setUrlType={setUrlType} />
+            <div className="flex w-full">
+              <Input
+                type="text"
+                onChange={(e) => setUrl(e.target.value)}
                 className={cn(
-                  "bg-primary rounded-[5px] size-[50px] border-[1.5px] flex justify-center items-center cursor-pointer",
-                  disabled && "cursor-not-allowed opacity-30"
+                  "h-[50px] rounded-none rounded-e-[5px] border-r-0",
+                  urlType === "secure" && "rounded-none border-none"
                 )}
+              />
+
+              {urlType === "secure" && (
+                <div className="bg-white flex justify-center items-center rounded-e-[5px] overflow-hidden border-s max-w-[220px]">
+                  <Lock className="w-5 border-none ml-5" />
+                  <Input
+                    type="text"
+                    onChange={(e) => setSecureCode(e.target.value)}
+                    className="h-[50px] rounded-none border-none"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="flex justify-center items-center pl-[6px] gap-[5px]">
+              <IconCard
+                disabled={disabled}
+                className={"bg-primary border-[1.5px]"}
               >
                 <Refresh />
-              </div>
-              <div
-                className={cn(
-                  "bg-white rounded-[5px] size-[50px] flex justify-center items-center cursor-pointer",
-                  disabled && "cursor-not-allowed opacity-30"
-                )}
-              >
+              </IconCard>
+              <IconCard disabled={disabled}>
                 <Qr />
-              </div>
-              <div
-                className={cn(
-                  "bg-white rounded-[5px] size-[50px] flex justify-center items-center cursor-pointer",
-                  disabled && "cursor-not-allowed opacity-30"
-                )}
-              >
+              </IconCard>
+              <IconCard disabled={disabled}>
                 <Copy />
-              </div>
+              </IconCard>
             </div>
           </div>
         </div>
