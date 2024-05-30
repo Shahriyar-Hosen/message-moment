@@ -14,7 +14,7 @@ export const ScrollToTop = () => {
   return (
     <Button
       onClick={scrollToTop}
-      className="border-[3px] border-white w-20 h-20 rounded-full flex justify-center items-center absolute -top-20 right-[60px] shadow-md"
+      className="border-[3px] bg-primary hover:bg-[#3d3dff] border-white w-20 h-20 rounded-full flex justify-center items-center absolute -top-20 right-[60px] shadow-md"
     >
       <Image
         src="/icon/top.svg"
