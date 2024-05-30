@@ -48,7 +48,7 @@ export const DiscoverSlider: React.FC = () => {
         width={20}
         height={35}
         alt=""
-        className="rotate-180"
+        className="rotate-180 cursor-pointer"
       />
       <div className="relative overflow-hidden  max-w-[1100px]">
         <div
@@ -56,7 +56,10 @@ export const DiscoverSlider: React.FC = () => {
           style={{ transform: `translateX(-${currentIndex * 25.45}%)` }}
         >
           {data.map(({ icon, label }, index) => (
-            <div key={index} className="w-[260px] h-[242px] flex-shrink-0">
+            <div
+              key={index}
+              className="w-[260px] h-[242px] flex-shrink-0 cursor-pointer"
+            >
               <div className="flex justify-center items-center gap-[27px] flex-col w-[260px] h-[242px] bg-white rounded-[20px] text-dark">
                 <Image src={icon} width={80} height={80} alt={label} />
                 <SubTitle variant="H4">{label}</SubTitle>
@@ -67,11 +70,12 @@ export const DiscoverSlider: React.FC = () => {
       </div>
 
       <Image
-        onClick={handleNext}
-        src="/icon/right-arrow.svg"
+        alt=""
         width={20}
         height={35}
-        alt=""
+        onClick={handleNext}
+        className="cursor-pointer"
+        src="/icon/right-arrow.svg"
       />
     </div>
   );
