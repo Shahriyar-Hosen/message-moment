@@ -1,15 +1,5 @@
 import { Container } from "@/components/common";
-import { P, SubTitle, Title } from "@/components/typography";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { SubTitle, Title } from "@/components/typography";
 import { ChatBox } from "./chat-box";
 
 export const Hero = () => {
