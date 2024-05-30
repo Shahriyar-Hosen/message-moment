@@ -5,7 +5,7 @@ import { NavigationLinks, ScrollToTop, SocialIcon } from ".";
 
 export const Footer = () => {
   return (
-    <footer className="pt-10">
+    <footer className="pt-10 bg-gradient-lite">
       <Container className="flex flex-col justify-center items-center gap-[50px] pb-[50px]">
         <ScrollToTop />
         <Logo />
