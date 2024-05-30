@@ -6,7 +6,7 @@ export const Converse = () => {
   return (
     <section>
       <Container
-        customClass="bg-gradient-to-b from-[#4949f8]/10 to-[#4949f800]"
+        customClass="bg-gradient-lite"
         className="flex justify-center gap-12 items-center py-[100px] pt-[162px]"
       >
         <div className="max-w-[574px] space-y-5">
