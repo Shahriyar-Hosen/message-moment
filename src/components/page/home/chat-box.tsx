@@ -21,12 +21,15 @@ const SelectBox = memo(() => {
   return (
     <Select defaultValue="standard" onOpenChange={() => setDropOpen(!dropOpen)}>
       <SelectTrigger
-        className="w-[140px] min-w-[140px] h-[50px] rounded-none rounded-s-[5px] outline-none"
+        className={cn(
+          "w-[140px] min-w-[140px] h-[50px] rounded-none rounded-s-[5px] outline-none",
+          dropOpen && "rounded-none rounded-tl-[5px]"
+        )}
         value={dropOpen ? "open" : ""}
       >
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
-      <SelectContent className="rounded-none rounded-b-[5px] -mt-2 z-50">
+      <SelectContent className="rounded-none rounded-b-[5px] -mt-1 z-50">
         <SelectGroup>
           <SelectItem value="standard">
             <P className="flex justify-center items-center gap-2 text-dark">
@@ -67,7 +70,7 @@ export const ChatBox = memo(() => {
             <Input
               type="text"
               onChange={(e) => setUrl(e.target.value)}
-              className="h-[50px] rounded-s-none"
+              className="h-[50px] rounded-none rounded-e-[5px]"
             />
             <div className="flex justify-center items-center pl-[6px] gap-[5px]">
               <div
