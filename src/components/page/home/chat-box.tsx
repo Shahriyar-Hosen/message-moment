@@ -11,8 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Copy, Lock, Qr, Refresh, World } from "@/lib/assets";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import { Dispatch, FC, SetStateAction, memo, useEffect, useState } from "react";
 import Turnstile from "react-turnstile";
 
@@ -59,22 +66,65 @@ const SelectBox: FC<ISelectBox> = memo(({ setUrlType }) => {
 SelectBox.displayName = "SelectBox";
 
 interface IIconCard {
+  tooltip: string | JSX.Element;
   disabled?: boolean;
   onclick?: () => void;
 }
 const IconCard: FC<IChildrenClassName & IIconCard> = memo(
-  ({ children, className, disabled, onclick }) => (
-    <div
-      onClick={onclick}
-      className={cn(
-        "bg-white rounded-[5px] size-[50px] flex justify-center items-center cursor-pointer",
-        disabled && "cursor-not-allowed opacity-30",
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
+  ({ children, className, disabled, onclick, tooltip }) => {
+    const [click, setClick] = useState(false);
+
+    return (
+      <TooltipProvider>
+        <Tooltip
+          open={click}
+          onOpenChange={() => !disabled && setClick(!click)}
+        >
+          <TooltipTrigger asChild onClick={() => !disabled && setClick(true)}>
+            <div
+              onClick={onclick}
+              className={cn(
+                "bg-white rounded-[5px] size-[50px] flex justify-center items-center cursor-pointer",
+                disabled && "cursor-not-allowed opacity-30",
+                className
+              )}
+            >
+              {children}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent className="relative bg-transparent border-transparent shadow-none">
+            <div
+              className={cn(
+                "bg-black border-black px-3 py-2 rounded-[6px]",
+                typeof tooltip !== "string" && "py-0 px-0 p-2.5 rounded-[10px]"
+              )}
+            >
+              {typeof tooltip === "string" ? (
+                <Note variant="N2" className="text-[14px] text-white">
+                  {tooltip}
+                </Note>
+              ) : (
+                tooltip
+              )}
+            </div>
+            <svg
+              width="6"
+              height="5"
+              viewBox="0 0 6 5"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute bottom-0.5 left-[50%]"
+            >
+              <path
+                d="M3.82744 4.55825C3.41543 5.14725 2.58457 5.14725 2.17256 4.55825L0.204915 1.74535C-0.299832 1.02378 0.185524 -3.14805e-08 1.03236 4.25521e-08L4.96764 3.86586e-07C5.81448 4.60618e-07 6.29983 1.02378 5.79509 1.74535L3.82744 4.55825Z"
+                fill="black"
+              />
+            </svg>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    );
+  }
 );
 IconCard.displayName = "IconCard";
 
@@ -121,15 +171,26 @@ export const ChatBox = memo(() => {
 
             <div className="flex justify-center items-center pl-[6px] gap-[5px]">
               <IconCard
+                tooltip="Regenerate"
                 disabled={emptyUrl}
                 className={"bg-primary border-[1.5px]"}
               >
                 <Refresh />
               </IconCard>
-              <IconCard disabled={emptyUrl}>
+              <IconCard
+                tooltip={
+                  <Image
+                    src="/icon/qr-code.svg"
+                    width={260}
+                    height={260}
+                    alt=""
+                  />
+                }
+                disabled={emptyUrl}
+              >
                 <Qr />
               </IconCard>
-              <IconCard disabled={emptyUrl}>
+              <IconCard tooltip="Copy URL" disabled={emptyUrl}>
                 <Copy />
               </IconCard>
             </div>
@@ -148,14 +209,16 @@ export const ChatBox = memo(() => {
             <div
               className={cn(
                 "bg-white w-full h-[65px] rounded-[6px] flex justify-center items-center",
-                btmDisabled ? "cursor-not-allowed" : "cursor-pointer"
+                btmDisabled || emptyUrl
+                  ? "cursor-not-allowed"
+                  : "cursor-pointer"
               )}
             >
               <P
                 variant="P2"
                 className={cn(
                   "font-bold leading-normal",
-                  btmDisabled ? "text-light-gray " : "text-primary"
+                  btmDisabled || emptyUrl ? "text-light-gray " : "text-primary"
                 )}
               >
                 Generate Link
