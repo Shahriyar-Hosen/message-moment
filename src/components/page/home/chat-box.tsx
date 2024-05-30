@@ -14,6 +14,7 @@ import {
 import { Copy, Lock, Qr, Refresh, World } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 import { Dispatch, FC, SetStateAction, memo, useEffect, useState } from "react";
+import Turnstile from "react-turnstile";
 
 type UrlType = "standard" | "secure";
 type ISelectBox = { setUrlType: Dispatch<SetStateAction<UrlType>> };
@@ -94,7 +95,7 @@ export const ChatBox = memo(() => {
           with your friends any way you like!
         </P>
         <div className="w-full h-full bg-black/[0.08] px-[30px] pt-[35px] pb-[25px] text-black space-y-[13px]">
-          <div className="w-full flex">
+          <div className="w-full flex ">
             <SelectBox setUrlType={setUrlType} />
             <div className="flex w-full">
               <Input
@@ -134,7 +135,16 @@ export const ChatBox = memo(() => {
             </div>
           </div>
           <div className="flex justify-center items-center gap-5">
-            <div className="bg-white min-w-[300px] h-[65px]"></div>
+            <div>
+              <Turnstile
+                className="min-w-[300px] h-[65px]"
+                theme="light"
+                sitekey={
+                  process.env.NEXT_PUBLIC_KEY_CLOUDFLARE_SITE_KEY as string
+                }
+                onVerify={(token) => token && setBtnDisabled(false)}
+              />
+            </div>
             <div
               className={cn(
                 "bg-white w-full h-[65px] rounded-[6px] flex justify-center items-center",
