@@ -6,7 +6,7 @@ export const LastsMoment = () => {
   return (
     <section>
       <Container
-        customClass="bg-gradient-to-b from-[#4949f818] to-[#4949f800]"
+        customClass="bg-gradient-to-b from-[#4949f8]/10 to-[#4949f800]"
         className="flex justify-evenly gap-5 items-center py-[100px]"
       >
         <Image src="/images/lasts-moment.png" alt="" width={426} height={475} />
