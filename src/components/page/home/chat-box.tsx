@@ -1,6 +1,6 @@
 "use client";
 
-import { P } from "@/components/typography";
+import { Note, P } from "@/components/typography";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -79,11 +79,12 @@ IconCard.displayName = "IconCard";
 
 export const ChatBox = memo(() => {
   const [urlType, setUrlType] = useState<UrlType>("standard");
-  const [disabled, setDisabled] = useState(true);
+  const [emptyUrl, setEmptyUrl] = useState(true);
+  const [btmDisabled, setBtnDisabled] = useState(true);
   const [url, setUrl] = useState<string>("");
   const [secureCode, setSecureCode] = useState<string>("");
 
-  useEffect(() => setDisabled(url.length > 0 ? false : true), [url]);
+  useEffect(() => setEmptyUrl(url.length > 0 ? false : true), [url]);
 
   return (
     <div className="absolute -bottom-[62px] w-full max-w-[1320px]">
@@ -92,7 +93,7 @@ export const ChatBox = memo(() => {
           Click the button below to receive your random link that you can share
           with your friends any way you like!
         </P>
-        <div className="w-full h-full bg-black/[0.08] px-[30px] pt-[35px] pb-[25px] text-black">
+        <div className="w-full h-full bg-black/[0.08] px-[30px] pt-[35px] pb-[25px] text-black space-y-[13px]">
           <div className="w-full flex">
             <SelectBox setUrlType={setUrlType} />
             <div className="flex w-full">
@@ -119,19 +120,43 @@ export const ChatBox = memo(() => {
 
             <div className="flex justify-center items-center pl-[6px] gap-[5px]">
               <IconCard
-                disabled={disabled}
+                disabled={emptyUrl}
                 className={"bg-primary border-[1.5px]"}
               >
                 <Refresh />
               </IconCard>
-              <IconCard disabled={disabled}>
+              <IconCard disabled={emptyUrl}>
                 <Qr />
               </IconCard>
-              <IconCard disabled={disabled}>
+              <IconCard disabled={emptyUrl}>
                 <Copy />
               </IconCard>
             </div>
           </div>
+          <div className="flex justify-center items-center gap-5">
+            <div className="bg-white min-w-[300px] h-[65px]"></div>
+            <div
+              className={cn(
+                "bg-white w-full h-[65px] rounded-[6px] flex justify-center items-center",
+                btmDisabled ? "cursor-not-allowed" : "cursor-pointer"
+              )}
+            >
+              <P
+                variant="P2"
+                className={cn(
+                  "font-bold leading-normal",
+                  btmDisabled ? "text-light-gray " : "text-primary"
+                )}
+              >
+                Generate Link
+              </P>
+            </div>
+          </div>
+          <Note className="text-center text-white pt-0.5">
+            By starting this chat session, you agree to our Terms of Use and
+            Privacy Policy, and that you and everybody you share the chat link
+            with is above 16 years of age.
+          </Note>
         </div>
       </div>
     </div>
