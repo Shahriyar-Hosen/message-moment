@@ -30,9 +30,9 @@ export const ExpressYourself = () => {
     <section>
       <Container
         customClass="bg-primary"
-        className="text-white pt-[70px] pb-[75px] flex flex-col justify-center items-center gap-[50px]"
+        className="text-white pt-[70px] pb-[72px] flex flex-col justify-center items-center gap-[50px]"
       >
-        <Title variant="H2" className="text-center">
+        <Title variant="H2" className="text-center pl-2">
           Express yourself freely, <br />
           anytime, with those you know
         </Title>
@@ -75,7 +75,7 @@ export const ExpressYourself = () => {
             </div>
           ))}
         </div>
-        <SubTitle variant="H6" className="text-center max-w-[930px] ">
+        <SubTitle variant="H6" className="text-center max-w-[930px] pt-3 pl-1">
           Start a chat session by clicking the &quot;Open Chat&quot; button on
           our site and receive a link. Optionally, make the chat secure by
           generating a security code.

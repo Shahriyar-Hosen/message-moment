@@ -60,7 +60,7 @@ export const DiscoverSlider: React.FC = () => {
               key={index}
               className="w-[260px] h-[242px] flex-shrink-0 cursor-pointer"
             >
-              <div className="flex justify-center items-center gap-[27px] flex-col w-[260px] h-[242px] bg-white rounded-[20px] text-dark">
+              <div className="flex justify-center items-center gap-[27px] flex-col w-[260px] h-[242px] bg-white rounded-[20px] text-dark pt-10">
                 <Image src={icon} width={80} height={80} alt={label} />
                 <SubTitle variant="H4">{label}</SubTitle>
               </div>

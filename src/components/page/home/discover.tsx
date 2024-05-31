@@ -30,15 +30,18 @@ export const Discover = () => {
   return (
     <section>
       <Container customClass="bg-dark" className="text-white pt-[70px]">
-        <Title variant="H2" className="text-center max-w-[934px] mx-auto pb-10">
+        <Title
+          variant="H2"
+          className="text-center max-w-[934px] mx-auto pb-10 pl-1"
+        >
           Discover more from MessageMoment
         </Title>
         <DiscoverSlider />
         <div className="pt-[60px] flex flex-col justify-center items-center gap-10">
-          <SubTitle variant="H4" className="text-center">
+          <SubTitle variant="H4" className="text-center -mt-0.5 pl-2">
             Use MessageMoment on any device via Browser1
           </SubTitle>
-          <div className="flex justify-center items-center gap-[50px]">
+          <div className="flex justify-center items-center gap-[48px] -mt-1">
             {deviceDate.map((item, i) => (
               <div
                 key={i}
@@ -58,7 +61,7 @@ export const Discover = () => {
           </div>
 
           <div className="mt-5 w-full max-w-[1096px] mx-auto border-t border-white/20">
-            <Note className="text-center pt-5 pb-10">
+            <Note className="text-center pt-5 pb-[33PX]">
               1Disclaimer: Compatibility may vary across different devices and
               operating systems.
             </Note>

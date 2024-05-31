@@ -12,7 +12,7 @@ export const Navbar = () => {
         </div>
         <div className="flex justify-start items-center gap-[30px]">
           <SocialIcon nav />
-          <Button className="px-[50px] py-3 h-auto tracking-[2px]">
+          <Button className="px-[51px] py-3 h-auto tracking-[2px]">
             Start
           </Button>
         </div>

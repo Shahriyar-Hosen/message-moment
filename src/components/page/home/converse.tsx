@@ -7,10 +7,10 @@ export const Converse = () => {
     <section>
       <Container
         customClass="bg-gradient-lite"
-        className="flex justify-center gap-12 items-center py-[100px] pt-[162px]"
+        className="flex justify-center gap-10 items-center py-[100px] pt-[145px]"
       >
-        <div className="space-y-5">
-          <Title variant="H2" className="max-w-[577px]">
+        <div className="space-y-5 ">
+          <Title variant="H2" className="max-w-[577px] pt-8">
             Converse with ease and assurance
           </Title>
           <P variant="P2" className="text-[17px] leading-normal max-w-[538px]">
@@ -20,6 +20,7 @@ export const Converse = () => {
             privacy and security of MessageMoment.
           </P>
         </div>
+
         <Image src="/images/converse.png" alt="" width={474} height={475} />
       </Container>
     </section>

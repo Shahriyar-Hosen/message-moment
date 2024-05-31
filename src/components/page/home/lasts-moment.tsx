@@ -7,10 +7,16 @@ export const LastsMoment = () => {
     <section>
       <Container
         customClass="bg-gradient-lite"
-        className="flex justify-evenly gap-5 items-center py-[100px]"
+        className="flex justify-evenly gap-5 items-center py-[100px] pb-[91px]"
       >
-        <Image src="/images/lasts-moment.png" alt="" width={426} height={475} />
-        <div className="max-w-[550px] space-y-5">
+        <Image
+          src="/images/lasts-moment.png"
+          alt=""
+          width={485}
+          height={220}
+          className="-mt-4"
+        />
+        <div className="max-w-[566px] space-y-5  pt-4 pr-4">
           <Title variant="H2">Your message only lasts a moment</Title>
           <P variant="P2" className="text-[17px] leading-normal pr-3">
             We believe that words can be a powerful tool for connection and
