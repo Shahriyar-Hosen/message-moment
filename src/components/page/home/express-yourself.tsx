@@ -49,7 +49,7 @@ export const ExpressYourself = () => {
           {data.map(({ label, title, img }, i) => (
             <div
               key={i}
-              className="bg-white/20 rounded-[20px] px-[30px] pb-[30px] pt-[61px] min-w-[260px] relative cursor-pointer group hover:bg-white hover:w-[476px] ease-linear transition-all duration-200"
+              className="bg-white/20 rounded-[20px] px-[30px] pb-[30px] pt-[61px] min-w-[260px] relative cursor-pointer group hover:bg-white hover:w-[476px] ease-linear transition-all duration-700 express-card"
             >
               <Title
                 variant="H2"

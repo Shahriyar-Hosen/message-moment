@@ -78,3 +78,9 @@
 .bg-gradient {
   @apply bg-gradient-to-b from-[#494AF8] to-[#4949f800];
 }
+.express-card {
+  width: 260px;
+  -webkit-transition: width 1s;
+  transition: width 1s;
+  transition-property: all;
+}
