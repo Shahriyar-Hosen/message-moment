@@ -3,19 +3,6 @@ import { Button } from "@/components/ui/button";
 import { NavigationLinks, SocialIcon } from ".";
 
 export const Navbar = () => {
-  // TODO: Add links to pages
-  // TODO: Mobile Responsive Remaining
-  const navItems = [
-    {
-      title: "About",
-      href: "/about",
-    },
-    {
-      title: "Help & Support",
-      href: "/help-&-support",
-    },
-  ];
-
   return (
     <nav className="w-full border-t-[5px] border-primary">
       <Container className="flex justify-between items-center gap-2.5 h-[80px]">
