@@ -4,8 +4,11 @@ import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import { FC } from "react";
 import "./globals.css";
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] });
-const dmSans = DM_Sans({ subsets: ["latin"] });
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 
 export const metadata: Metadata = {
   title: "Message Moment",
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<IChildren> = ({ children }) => (
   <html lang="en">
-    <body className={`${jetBrainsMono.className} ${dmSans.className}`}>
+    <body className={`${jetBrainsMono.variable} ${dmSans.variable}`}>
       <Navbar />
       {children}
       <Footer />

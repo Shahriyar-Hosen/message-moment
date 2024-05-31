@@ -81,6 +81,6 @@
 .express-card {
   width: 260px;
   -webkit-transition: width 1s;
-  transition: width 1s;
+  transition: width 500ms;
   transition-property: all;
 }

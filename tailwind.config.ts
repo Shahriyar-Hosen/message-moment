@@ -20,8 +20,8 @@ const config = {
 
     extend: {
       fontFamily: {
-        "jetbrains-mono": ["JetBrains Mono", "monospace"],
-        "dm-sans": ["DM Sans", "sans-serif"],
+        "jetbrains-mono": ["var(--font-jetbrains-mono)"],
+        "dm-sans": ["var(--font-dm-sans)"],
       },
       backgroundImage: {
         "gradient-lite": "linear-gradient(to bottom, #4949f81a, #4949f800)",
